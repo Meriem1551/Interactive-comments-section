@@ -1,0 +1,264 @@
+:root {
+    /* Primary */
+    --moderate-blue: hsl(238, 40%, 52%);
+    --soft-red: hsl(358, 79%, 66%);
+    --light-grayish-blue: hsl(239, 57%, 85%);
+    --pale-red: hsl(357, 100%, 86%);
+
+    /* Neutral */
+    --dark-blue: hsl(212, 24%, 26%);
+    --grayish-blue: hsl(211, 10%, 45%);
+    --light-gray: hsl(223, 19%, 93%);
+    --very-light-gray: hsl(228, 33%, 97%);
+    --white: hsl(0, 0%, 100%);
+
+    /* Typography */
+    --font-family: 'Rubik', sans-serif;
+    --font-size: 16px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    color: var(--dark-blue);
+    background-color: var(--very-light-gray);
+}
+.comments{
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.form{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.comment{
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    gap: 30px;
+}
+.commentSectionHeader {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.commentSectionHeader img {
+    width: 40px;
+    height: 40px;
+}
+ p {
+    font-size: var(--font-size);
+    color: var(--grayish-blue)
+}
+.username{
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+.you{
+    font-weight: 700;
+    color: var(--white);
+    background-color: var(--moderate-blue);
+    padding: 4px 8px;
+    border-radius: 3px;
+    margin: 0 5px;
+}
+.buttons{
+    display: flex;
+    align-items: flex-start;
+}
+.buttons button{
+    background-color: transparent;
+    border: none;
+     padding: 10px 20px;
+    cursor: pointer;
+    font-size: var(--font-size);
+    font-weight: bold;
+        gap: 5px;
+    display: flex;
+
+}
+.replyButton, .editButton{
+    color: var(--moderate-blue);
+}
+
+.deleteButton{
+    color: var(--soft-red);
+}
+.commentText{
+    margin-top: 15px;
+    line-height: 1.5;
+}
+.replyTo{
+font-weight: bold;
+color: var(--moderate-blue);
+margin-right: 5px;
+
+}
+
+.likeCounter {
+    background-color: var(--light-gray);
+    display: grid;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+.countLike {
+    color: var(--moderate-blue);
+    font-weight: 700;
+    text-align: center;
+} 
+
+.replies{
+    max-width: 750px;
+    margin-left: auto;
+    border-left: 2px solid var(--light-gray);
+    padding-left: 50px;
+}
+.form{
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: start;
+}
+.form textarea {
+    width: 100%;
+    height: 100px;
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: var(--font-size);
+    color: var(--dark-blue);
+}
+.form img{
+    width: 45px;
+    height: 45px;
+    margin-right: 20px;
+}
+.form button{
+    background-color: var(--moderate-blue);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: var(--font-size);
+    margin-left: 20px;
+}
+
+.plus:hover, .minus:hover{
+    cursor: pointer;
+    filter: brightness(0.6);
+}
+button:hover{
+    filter: brightness(1.6);
+}
+.deleteComment{
+    position: fixed;
+    top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    max-width: 30%;
+    font-size: var(--font-size);
+    padding: 30px;
+    transition: color 0.3s ease;
+    background-color: var(--white);
+    border-radius: 8px;
+    display: block;
+    z-index: 1000;
+}
+.hidden{
+    display: none;
+}
+.deleteComment .buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.buttons .cancel{
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    background-color: var(--dark-blue);
+   
+}
+.buttons .delete{
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    background-color: var(--soft-red);
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+textarea:focus, input:focus {
+    outline: none;
+    border:2px solid var(--moderate-blue);
+}
+@media (max-width: 600px) {
+    .comment {
+        flex-direction: column;
+    }
+    .commentSectionHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .buttons {
+        margin-top: 10px;
+    }
+    .form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .form img {
+        margin-bottom: 10px;
+    }
+    .deleteComment {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 400px;
+    }
+    .likeCounter {
+        width: 100%;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        gap: 20px;
+        position: absolute;
+        bottom: 20px;
+        width: 100px;
+    }
+    .buttons {
+       display: flex;
+         flex-direction: row;
+        justify-content: flex-end;
+    }
+}
+
+
